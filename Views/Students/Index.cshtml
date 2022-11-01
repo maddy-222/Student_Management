@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EFMVC_CRUD.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.studentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studentAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studentAge)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentAge)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.studentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.studentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.studentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@model EFMVC_CRUD.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="studentName" class="control-label"></label>
+                <input asp-for="studentName" class="form-control" />
+                <span asp-validation-for="studentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="studentAddress" class="control-label"></label>
+                <input asp-for="studentAddress" class="form-control" />
+                <span asp-validation-for="studentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="studentAge" class="control-label"></label>
+                <input asp-for="studentAge" class="form-control" />
+                <span asp-validation-for="studentAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
